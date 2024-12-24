@@ -14,7 +14,7 @@ contract supplyChain is AccessControl {
         uint productDna;
         uint32 rewardTime;  
         uint creationDate;
-        string metadataHash; // IPFS or Arweave hash
+        string metadataHash;
     }
 
     mapping(uint => address) public productToOwner;
@@ -30,7 +30,7 @@ contract supplyChain is AccessControl {
 
     constructor() {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        _grantRole(MANUFACTURER_ROLE, msg.sender); // Owner is default manufacturer
+        _grantRole(MANUFACTURER_ROLE, msg.sender); 
     }
 
     function _createProduct(string memory _name, uint _dna, string memory _metadataHash) internal onlyRole(MANUFACTURER_ROLE) {

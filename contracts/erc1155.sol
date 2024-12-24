@@ -7,7 +7,6 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract ProductERC1155 is ERC1155, Ownable {
     uint public currentTokenId;
 
-    // Pass the initialOwner parameter to the Ownable constructor
     constructor(address initialOwner) ERC1155("https://api.example.com/metadata/{id}.json") Ownable(initialOwner) {}
 
     function mint(address to, uint256 amount, bytes memory data) public onlyOwner {
